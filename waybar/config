@@ -1,0 +1,102 @@
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": [
+    "sway/workspaces",
+    "custom/chatGPT",
+    "custom/firefox",
+    "custom/kitty",
+    "custom/nvim"
+   ],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "custom/updates",
+    "custom/network",
+    "custom/bluetooth", 
+    "pulseaudio", 
+    "battery", 
+    "custom/logout", 
+    "tray"
+   ],
+
+  "clock": {
+    "format": "{:%H:%M %p}",
+    "tooltip-format": "{:%A, %d %B %Y}"
+  },
+
+  "pulseaudio": {
+    "format": " {volume}%",
+    "format-muted": "",
+    "on-click": "pavucontrol" // asegúrate de tenerlo instalado
+  },
+
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-icons": ["", "", "", "", ""]
+  },
+
+
+  "custom/bluetooth": {
+    "format": "{}",
+    "return-type": "json",
+    "tooltip": true,
+    "tooltip-format": "Bluetooth",
+    "on-click": "blueman-manager",
+    "exec": "~/.config/waybar/scripts/bluetooth_status.sh",
+    "interval": 5
+  }, 
+
+  "custom/logout": {
+    "format": "",
+    "tooltip": true,
+    "tooltip-format": "PowerOff\nReboot\nSuspend\nLogout",
+    "on-click": "~/.config/sway/logout.sh"
+    // o para un menú: "on-click": "wlogout" (si lo tienes instalado)
+  },
+
+  "custom/firefox": {
+    "format": "",  // Ícono de Firefox (usando Nerd Font)
+    "tooltip": true,
+    "tooltip-format": "Navegador",
+    "on-click": "firefox",
+    "on-click-right": "firefox --private-window"
+  },
+
+  "custom/kitty": {
+    "format": "",  // Ícono de terminal (Kitty)
+    "tooltip-format": "Terminal",
+    "on-click": "kitty"
+  },
+
+  "custom/nvim": {
+    "format": "",  // Ícono de Neovim
+    "tooltip-format": "Editor de Texto",
+    "on-click": "kitty -e nvim"
+  },
+
+  
+  "custom/network": {
+    "exec": "~/.config/waybar/scripts/network_status.sh",
+    "interval": 5,
+    "return-type": "json",
+    "format": "{text}",
+    "tooltip": true,
+    "on-click": "kitty -e nmtui"
+  },
+
+  "custom/chatGPT": {
+    "format": "󰚩",
+    "tooltip-format": "ChatGPt",
+    "on-click": "firefox --new-window https://chat.openai.com"
+  },
+
+  "custom/updates": {
+    "exec": "~/.config/waybar/scripts/updates.sh",
+    "interval": 1800,
+    "return-type": "json",
+    "format": "{}",
+    "on-click": "kitty --class updates -e paru"
+  }
+
+}
+
