@@ -1,0 +1,4 @@
+checkupdates-with-aur
+paru
+paru-debug
+ventoy-bin
