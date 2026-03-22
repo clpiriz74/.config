@@ -3,24 +3,23 @@
   "position": "top",
   "modules-left": [
     "sway/workspaces",
-    "custom/chatGPT",
     "custom/firefox",
-    "custom/kitty",
-    "custom/nvim"
+    "custom/term",
+    "custom/nvim",
+    "custom/virtual"   
    ],
   "modules-center": ["clock"],
   "modules-right": [
-    "custom/updates",
     "custom/network",
     "custom/bluetooth", 
     "pulseaudio", 
-    "battery", 
+    "custom/battery", 
     "custom/logout", 
     "tray"
    ],
 
   "clock": {
-    "format": "{:%H:%M %p}",
+    "format": "{:%H:%M}",
     "tooltip-format": "{:%A, %d %B %Y}"
   },
 
@@ -30,9 +29,12 @@
     "on-click": "pavucontrol" // asegúrate de tenerlo instalado
   },
 
-  "battery": {
-    "format": "{capacity}% {icon}",
-    "format-icons": ["", "", "", "", ""]
+  "custom/battery": {
+    "exec": "~/.config/waybar/scripts/battery.sh",
+    "interval": 10,
+    "return-type": "json",
+    "format": "{text}",
+    "tooltip": true,
   },
 
 
@@ -43,14 +45,14 @@
     "tooltip-format": "Bluetooth",
     "on-click": "blueman-manager",
     "exec": "~/.config/waybar/scripts/bluetooth_status.sh",
-    "interval": 5
+    "interval": 10
   }, 
 
   "custom/logout": {
     "format": "",
     "tooltip": true,
-    "tooltip-format": "PowerOff\nReboot\nSuspend\nLogout",
-    "on-click": "~/.config/sway/logout.sh"
+    "tooltip-format": "Logout\nShutdown\nReboot",
+    "on-click": "/home/elpa/.config/sway/powermenu.sh"
     // o para un menú: "on-click": "wlogout" (si lo tienes instalado)
   },
 
@@ -62,41 +64,33 @@
     "on-click-right": "firefox --private-window"
   },
 
-  "custom/kitty": {
-    "format": "",  // Ícono de terminal (Kitty)
+  "custom/term": {
+    "format": "",  // Ícono de terminal (foot)
     "tooltip-format": "Terminal",
-    "on-click": "kitty"
+    "on-click": "foot"
   },
 
   "custom/nvim": {
     "format": "",  // Ícono de Neovim
     "tooltip-format": "Editor de Texto",
-    "on-click": "kitty -e nvim"
+    "on-click": "foot nvim"
   },
 
   
   "custom/network": {
     "exec": "~/.config/waybar/scripts/network_status.sh",
-    "interval": 5,
+    "interval": 10,
     "return-type": "json",
     "format": "{text}",
     "tooltip": true,
-    "on-click": "kitty -e nmtui"
+    "on-click": "foot nmtui"
   },
-
-  "custom/chatGPT": {
-    "format": "󰚩",
-    "tooltip-format": "ChatGPt",
-    "on-click": "firefox --new-window https://chat.openai.com"
+  
+  "custom/virtual": {
+    "format": " ",  
+    "tooltip-format": "Virtual Machine Manager",
+    "on-click": "virt-manager"
   },
-
-  "custom/updates": {
-    "exec": "~/.config/waybar/scripts/updates.sh",
-    "interval": 1800,
-    "return-type": "json",
-    "format": "{}",
-    "on-click": "kitty --class updates -e paru"
-  }
 
 }
 

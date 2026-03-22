@@ -1,34 +1,14 @@
 * {
-  font-family: "MesloLGl Nerd Font", monospace;
-  font-size: 16px;
+  font-family: "Hack Nerd Font", monospace;
+  font-size: 25px;
   background: #1e1e2e;
   color: #cdd6f4;
 }
 
-#clock {
-  color: #89b4fa;
-}
-
-#pulseaudio {
-  color: #f38ba8;
-}
-
-#battery {
-  color: #a6e3a1;
-}
-
-#custom-bluetooth {
-  color: #94e2d5;
-}
-
-#custom-logout {
-  color: #f9e2af;
-}
 
 #workspaces {
   margin: 0 8px;
 }
-
 #workspaces button {
   padding: 4px 8px;
   margin: 0 4px;
@@ -37,96 +17,66 @@
   border-radius: 5px;
   color: #cdd6f4;
 }
-
 #workspaces button.focused {
   background: #89b4fa;
   color: #1e1e2e;
 }
-
 #workspaces button:hover {
   background: #585b70;
 }
-#pulseaudio,
-#battery,
-#clock,
-#custom-logout,
+
+#custom-virtual,
+#custom-network.connected,
+#custom-bluetooth.connected,
+#custom-logout, 
 #custom-bluetooth,
-#tray {
-  padding: 0 6px;
-  margin: 0 4px;
-  min-width: 20px;
-  min-height: 20px;
-  background: transparent;
-  border: none;
-  color: #a6e3a1;
-}
+#pulseaudio,
+#clock,
 #custom-firefox,
-#custom-kitty,
-#custom-chatGPT,
+#custom-term,
 #custom-nvim {
   padding: 0 8px;
-  font-size: 16px;
   color: #89b4fa;
 }
 
+
+#custom-virtual:hover,
+#custom-network.connected:hover,
+#custom-bluetooth.on:hover,
+#custom-bluetooth.off:hover,
+#custom-logout:hover, 
+#custom-bluetooth:hover,
+#custom-battery.low:hover,
+#custom-battery.medium:hover,
+#custom-battery.charging:hover,
+#custom-battery.normal:hover,
+#pulseaudio:hover,
+#clock:hover,
+#custom-bluetooth.connected:hover,
 #custom-firefox:hover,
-#custom-chatGPT:hover,
-#custom-kitty:hover,
+#custom-term:hover,
 #custom-nvim:hover {
   color: #cba6f7;
 }
 
+#custom-bluetooth.on {
+  color: #276b21;
+}
+
+#custom-network.disconnected,
 #custom-bluetooth.off {
   color: #f38ba8; /* rojo o rosado si apagado */
 }
 
-#custom-bluetooth.on {
-  color: #89b4fa; /* azul si encendido pero sin conexión */
-}
 
-#custom-bluetooth.connected {
-  color: #a6e3a1; /* verde si hay algún dispositivo conectado */
+#custom-battery.low {
+  color:#db1a1a;
 }
-
-#custom-network.connected {
-  color: #a6e3a1; /* verde suave cuando está conectado */
+#custom-battery.medium {
+  color:#d8e61e;
 }
-
-#custom-network.disconnected {
-  color: #f38ba8; /* rojo suave cuando no hay red */
-}
-
-#custom-network:hover {
-  color: #89b4fa; /* azul al pasar el mouse */
-}
-
-#custom-logoutn:hover,
-#pulseaudio:hover,
-#battery:hover,
-#clock:hover {
-  color: #89b4fa; /* azul */
-}
-/* Módulo de actualizaciones */
-
-#custom-updates {
-  padding: 0 8px;
-  font-size: 16px;
-  transition: color 0.3s;
-}
-
-/* Cuando no hay actualizaciones → verde */
-#custom-updates.clean {
-  color: #a6e3a1;
-}
-
-/* Cuando hay actualizaciones → rojo */
-#custom-updates.updates {
-  color: #f38ba8;
-  font-weight: bold;
-}
-
-/* Al pasar el mouse por encima → azul */
-#custom-updates:hover {
-  color: #89b4fa;
+#custom-battery.charging,
+#custom-battery.normal {
+  color:#89b4fa;
 }
 
