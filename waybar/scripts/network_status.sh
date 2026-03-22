@@ -41,7 +41,7 @@ for iface in "${WIFI_IFACES[@]}"; do
             else
                 signal_percent="N/A"
             fi
-            echo "{\"text\":\" $essid ($signal_percent%)\",\"tooltip\":\"$iface - $essid\nIP Local: $ip_addr\nIP Pública: $public_ip\",\"class\":\"connected\"}"
+            echo "{\"text\":\" $essid($signal_percent%)\",\"tooltip\":\"$iface - $essid\nIP Local: $ip_addr\nIP Pública: $public_ip\",\"class\":\"connected\"}"
             exit 0
         fi
     fi
